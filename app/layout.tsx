@@ -1,5 +1,14 @@
+"use client";
 import Head from "next/head";
 import "./styles/globals.css";
+// import { Metadata } from "next";
+import { store } from "./store";
+import { Provider } from "react-redux";
+
+// export const metadata: Metadata = {
+//   title: "My Next.js App - Home",
+//   description: "This is the home page of my Next.js app.",
+// };
 
 export default function RootLayout({
   children,
@@ -23,7 +32,9 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.example.com/" />
       </Head>
-      <body>{children}</body>
+      <body>
+        <Provider store={store}>{children}</Provider>
+      </body>
     </html>
   );
 }
